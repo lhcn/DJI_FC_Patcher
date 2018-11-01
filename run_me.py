@@ -34,6 +34,7 @@ def model_name(model):
         'wm331': 'P4P',
         'wm332': 'P4adv',
         'wm620': 'I2',
+        'wm334': 'P4Prtk',
         'wm335': 'P4PV2',
 
     }

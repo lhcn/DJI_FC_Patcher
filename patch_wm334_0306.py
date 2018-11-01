@@ -221,7 +221,7 @@ if __name__ == "__main__":
     #   Patch the instructions that get the size of the frames to send,
     #   New UBX frames must stay below 255 bytes total
     #    Minimal checks performed
- 
+## 
     ## p.patchByteAtAddress(0x5136A8,length_part1)
     ## p.patchByteAtAddress(0x5136B2,length_part2)
     ## p.patchByteAtAddress(0x5136B6,length_part1)

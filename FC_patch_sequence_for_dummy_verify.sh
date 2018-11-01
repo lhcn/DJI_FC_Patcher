@@ -105,7 +105,7 @@ then
    ORI_MODULE_TIMESTAMP="2018-07-04 19:05:21"
    #escape the / from <\module> after copy/pasting the original data here
    ORI_MODULE_INFO='<module id="0306" version="03.03.09.09" type="" group="" size="1463072" md5="a71c9b796c9f9877ae28dabc448b4394">wm620_0306_v03.03.09.09_20180704.pro.fw.sig<\/module>'
-elif [ "$1" == "P4PV2" ]
+elif [ "$1" == "P4PV2-1500" ]
 then
    #   P4PV2 = Phantom 4 Pro/Pro+ V2
    AC_PREFIX=wm335
@@ -115,6 +115,26 @@ then
    ORI_MODULE_TIMESTAMP="2018-05-25 15:27:34"
    #escape the / from <\module> after copy/pasting the original data here
    ORI_MODULE_INFO='<module id="0306" version="03.03.04.13" type="" group="ac" size="1437728" md5="4d60509ca1a7565766d425372b262eab">wm335_0306_v03.03.04.13_20180525.pro.fw.sig<\/module>'
+elif [ "$1" == "P4PRTK" ]
+then
+   #   P4P RTK = Phantom 4 Pro RTK
+   AC_PREFIX=wm334
+   FULL_ORIGINAL_FIRMWARE_VERSION="V01.05.0106"
+   ORI_VERSION="03.03.06.31"
+   ORI_FILEDATE=20180928
+   ORI_MODULE_TIMESTAMP="2018-09-28 13:51:23" # search it in the encrypted.bin /build
+   #escape the / from <\module> after copy/pasting the original data here
+   ORI_MODULE_INFO='<module id="0306" version="03.03.06.31" type="" group="" size="1476128" md5="5c6e4776a0d7328ed03b8dddbd2f7b1d">wm334_0306_v03.03.06.31_20180928.pro.fw.sig<\/module>'
+elif [ "$1" == "P4PV2" ]
+then
+   #   P4PV2 = Phantom 4 Pro/Pro+ V2
+   AC_PREFIX=wm335
+   FULL_ORIGINAL_FIRMWARE_VERSION="v01.00.2000"
+   ORI_VERSION="03.03.13.05"
+   ORI_FILEDATE=20180904
+   ORI_MODULE_TIMESTAMP="2018-09-04 15:49:11" # search it in the encrypted.bin /build
+   #escape the / from <\module> after copy/pasting the original data here
+   ORI_MODULE_INFO='<module id="0306" version="03.03.13.05" type="" group="ac" size="1473312" md5="20752867a1f8c7cb18537e6df3fa689f">wm335_0306_v03.03.13.05_20180904.pro.fw.sig<\/module>'
 fi
 
 VERSIONSTR="v$VERSION"
@@ -163,6 +183,9 @@ echo "##########################################################################
 echo "                       Modifying $AC_PREFIX.cfg"
 echo "################################################################################"
 
+if [ `uname` == 'Darwin' ];then
+    alias md5sum='md5 -r'
+fi
 md5=`md5sum $DST_FILENAME | awk '{ print $1 }'`
 size="$(wc -c < $DST_FILENAME)"
 
@@ -176,7 +199,7 @@ cp "$INDEX_FILE".ori "$INDEX_FILE"
 
 NEW_MODULE_INFO='<module id="'$MODULE'" version="'$VERSION'" type="" group="ac" size="'$size'" md5="'$md5'">'$DST_FILENAME'<\/module>'
 
-sed -i "s/${ORI_MODULE_INFO}/${NEW_MODULE_INFO}/g" $INDEX_FILE
+sed -i "" -e "s/${ORI_MODULE_INFO}/${NEW_MODULE_INFO}/g" $INDEX_FILE
 if [ $? != 0 ]
 then
     echo "#### Issue while modifying $INDEX_FILE ####"

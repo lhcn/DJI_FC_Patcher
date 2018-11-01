@@ -104,7 +104,7 @@ then
    ORI_MODULE_TIMESTAMP="2018-07-04 19:05:21"
    #escape the / from <\module> after copy/pasting the original data here
    ORI_MODULE_INFO='<module id="0306" version="03.03.09.09" type="" group="" size="1463072" md5="a71c9b796c9f9877ae28dabc448b4394">wm620_0306_v03.03.09.09_20180704.pro.fw.sig<\/module>'
-elif [ "$1" == "P4PV2" ]
+elif [ "$1" == "P4PV2-1500" ]
 then
    #   P4PV2 = Phantom 4 Pro/Pro+ V2
    AC_PREFIX=wm335
@@ -114,6 +114,17 @@ then
    ORI_MODULE_TIMESTAMP="2018-05-25 15:27:34"
    #escape the / from <\module> after copy/pasting the original data here
    ORI_MODULE_INFO='<module id="0306" version="03.03.04.13" type="" group="ac" size="1437728" md5="4d60509ca1a7565766d425372b262eab">wm335_0306_v03.03.04.13_20180525.pro.fw.sig<\/module>'
+fi
+elif [ "$1" == "P4PV2" ]
+then
+   #   P4PV2 = Phantom 4 Pro/Pro+ V2
+   AC_PREFIX=wm335
+   FULL_ORIGINAL_FIRMWARE_VERSION="v01.00.2000"
+   ORI_VERSION="03.03.13.05"
+   ORI_FILEDATE=20180904
+   ORI_MODULE_TIMESTAMP="2018-09-04 15:49:11" # search /build in the decrypted.bin
+   #escape the / from <\module> after copy/pasting the original data here
+   ORI_MODULE_INFO='<module id="0306" version="03.03.13.05" type="" group="ac" size="1473312" md5="20752867a1f8c7cb18537e6df3fa689f">wm335_0306_v03.03.13.05_20180904.pro.fw.sig<\/module>'
 fi
 
 VERSIONSTR="v$VERSION"

@@ -245,6 +245,8 @@ or
 `/sbin/dji_verify -n 0306 -o 0306.unsig wm220_0306_v03.02.44.07_20171116.pro.fw.sig`
 or
 `/system/bin/dji_verify -n 0306 -o 0306.unsig wm331_0306_v03.02.44.07_20171116.pro.fw.sig`
+or
+`/sbin/dji_verify -n 0306 -o 0306.unsig wm335_0306_v03.03.04.13_20180525.pro.fw.sig`
 
 at this stage exit the adb shell and pull the file you've been generating :
 ```
@@ -294,6 +296,8 @@ or
 `mv 0306.decrypted.bin wm220_0306_v03.02.44.07_20171116.pro.fw_0306.decrypted.bin`
 or
 `mv 0306.decrypted.bin wm331_0306_v03.02.44.07_20171116.pro.fw_0306.decrypted.bin`
+or
+`mv 0306.decrypted.bin wm335_0306_v03.03.04.13_20180525.pro.fw_0306.decrypted.bin`
 
 Result file md5 hashes that you should get :
 
@@ -317,6 +321,8 @@ or
 `./dji-firmware-tools/dji_flyc_param_ed.py -vv -x -b 0x420000 -m wm220_0306_v03.02.44.07_20171116.pro.fw_0306.decrypted.bin`
 or
 `./dji-firmware-tools/dji_flyc_param_ed.py -vv -x -b 0x420000 -m wm331_0306_v03.02.44.07_20171116.pro.fw_0306.decrypted.bin`
+or
+`./tools/dji-firmware-tools/dji_flyc_param_ed.py -vv -x -b 0x420000 -m wm335_0306_v03.03.04.13_20180525.pro.fw_0306.decrypted.bin`
 
 This will generate a flyc_param_infos file with all the flight parameters that you are able to modify.
 The . is sometimes changed by _ compared to how variables were named in the DJI Assistant interface but it's the same things
@@ -361,6 +367,8 @@ or
 `./FC_patch_sequence_for_dummy_verify.sh Mavic 03.02.44.08`
 or
 `./FC_patch_sequence_for_dummy_verify.sh P4P 03.02.44.08`
+or
+`./FC_patch_sequence_for_dummy_verify.sh P4PV2 03.03.04.14`
 
 The aa.bb.cc.dd string after Spark or Mavic arg is the version of the FC module you are building.
 It should be different from the one that is currently installed on the bird, so basically increase the number
