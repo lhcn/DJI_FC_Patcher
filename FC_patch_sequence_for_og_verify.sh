@@ -114,7 +114,6 @@ then
    ORI_MODULE_TIMESTAMP="2018-05-25 15:27:34"
    #escape the / from <\module> after copy/pasting the original data here
    ORI_MODULE_INFO='<module id="0306" version="03.03.04.13" type="" group="ac" size="1437728" md5="4d60509ca1a7565766d425372b262eab">wm335_0306_v03.03.04.13_20180525.pro.fw.sig<\/module>'
-fi
 elif [ "$1" == "P4PV2" ]
 then
    #   P4PV2 = Phantom 4 Pro/Pro+ V2
